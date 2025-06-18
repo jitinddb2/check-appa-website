@@ -1,30 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Appa</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CheckVersionOfJit - Smart Local Finder</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to Check Appa</h1>
-        <p>Your local search partner for shops and services</p>
-    </header>
-    <main>
-        <section>
-            <h2>Find Nearby Services</h2>
-            <p>Check Appa helps you discover shops, food stalls, and essential services in your new area.</p>
-        </section>
-        <section>
-            <h2>Trending Now</h2>
-            <p>Stay updated with trending places, top rated snacks, and much more!</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Check Appa. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+  <header>
+    <h1>CheckVersionOfJit</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shops">Find Shops</a>
+      <a href="#students">Students/Job Info</a>
+      <a href="#about">About Us</a>
+      <a href="#login">Shopkeeper Login</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome to CheckVersionOfJit</h2>
+    <p>Your smart companion for discovering local shops, services, food stalls, tuition classes, PGs, and more – wherever you go.</p>
+  </section>
+
+  <section id="shops">
+    <h2>Search Shops by Location</h2>
+    <label for="state">State:</label>
+    <select id="state" onchange="populateDistricts()">
+      <option value="">Select State</option>
+      <option value="jharkhand">Jharkhand</option>
+      <option value="delhi">Delhi</option>
+      <option value="kerala">Kerala</option>
+    </select>
+
+    <label for="district">District:</label>
+    <select id="district" onchange="populateCities()">
+      <option value="">Select District</option>
+    </select>
+
+    <label for="city">City/Block:</label>
+    <select id="city">
+      <option value="">Select City/Block</option>
+    </select>
+
+    <button onclick="findShops()">Search Shops</button>
+    <div id="shop-results"></div>
+  </section>
+
+  <section id="students">
+    <h2>Student & Job Holder Zone</h2>
+    <p>Find nearby tuitions, hostels, PGs, libraries, co-working spaces, or part-time job offers. We help students and job-seekers settle faster in new cities.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>CheckVersionOfJit is designed to help people find the nearest and most essential services in unfamiliar places – whether it's street food, drinks, hostels, or transportation alternatives.</p>
+  </section>
+
+  <section id="login">
+    <h2>Shopkeeper Login</h2>
+    <form onsubmit="return shopLogin(event)">
+      <input type="email" placeholder="Email" required /><br>
+      <input type="password" placeholder="Password" required /><br>
+      <button type="submit">Login</button>
+    </form>
+    <p>New Shopkeeper? <a href="#" onclick="showRegisterForm()">Register Here</a></p>
+  </section>
+
+  <section id="register" style="display:none;">
+    <h2>Register Your Shop</h2>
+    <form onsubmit="return shopRegister(event)">
+      <input type="text" placeholder="Shop Name" required /><br>
+      <input type="text" placeholder="Owner Name" required /><br>
+      <input type="email" placeholder="Email" required /><br>
+      <input type="text" placeholder="Location (City, Street)" required /><br>
+      <input type="text" placeholder="Services (e.g., Coca-Cola, PG, Chaat)" required /><br>
+      <button type="submit">Register</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CheckVersionOfJit. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
